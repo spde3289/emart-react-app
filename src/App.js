@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
+import Toc from "./conponents/Toc"
+import Subject from './conponents/Subject'
+import Content from './conponents/Content'
 import './App.css';
 
-class Subject extends Component {
-  render() {
-    return ( 
-    <header >
-      <h1> WEB </h1>
-      world wide web!
-    </header>
-    );
-  }
-}
 
 class App extends Component {
   render() {
     return ( 
       <div className ="App">
-      <Subject></Subject>
+      <Subject title="web" sub="world wide web!"></Subject>
+      <Toc></Toc>
+      <Content title="HTML" desc="HTML is hyperText Markup Languang"></Content>
       </div>
     );
   };
