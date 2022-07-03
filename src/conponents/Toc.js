@@ -20,4 +20,3 @@ class Toc extends Component {
   };
 
 export default Toc;
-  
