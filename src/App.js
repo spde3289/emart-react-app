@@ -17,9 +17,7 @@ class App extends Component {
         {id:3, title:'JS', desc:'JS is for interactive'},
       ]
     };
-    console.log(this.state)
-    console.log(Component)
-    console.log(App.props)
+
   };
 
   render() {
