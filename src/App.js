@@ -21,7 +21,7 @@ class App extends Component {
   };
 
   render() {
-    //console.log('app render');
+    console.log('app render');
     let _title, _desc = null;
 
     if(this.state.mode === 'welcome'){
