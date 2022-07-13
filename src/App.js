@@ -21,7 +21,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('app render');
     let _title, _desc = null;
 
     if(this.state.mode === 'welcome'){
@@ -30,7 +29,7 @@ class App extends Component {
     } else if(this.state.mode === 'read'){
       _title =this.state.content[0].title;
       _desc = this.state.content[0].desc;
-      console.log(this.state.mode)
+
     };
 
     return ( 
@@ -42,14 +41,10 @@ class App extends Component {
       <header>
         <h1><a href ="/" onClick = { function(e) {
           e.preventDefault();
-
           console.log(this.state.mode)
-        
-          this.setState({
-            mode:'welcome'
-          })
-          //console.log(App.state)
-        }.bind(this)}>{this.state.subject.title}</a></h1>
+          this.setState({ mode:'welcome'})}.bind(this)}>
+            {this.state.subject.title}
+            </a></h1>
         {this.state.subject.sub}
       </header>
       <Toc data={this.state.content}></Toc>
