@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Toc from "./conponents/Toc";
 import Subject from './conponents/Subject';
 import Content from './conponents/Content';
@@ -28,16 +28,16 @@ class App extends Component {
       _title = this.state.Welcome.title;
       _desc = this.state.Welcome.desc;
     } else if(this.state.mode === 'read'){
-      var i  = 0
+      var i  = 0;
       while(i < this.state.content.length){
         var data = this.state.content[i];
         if(data.id === this.state.selected_content_id){
           _title = data.title;
           _desc = data.desc;
           break;
-        }
-        i++
-      }
+        };
+        i++;
+      };
     };
 
     return ( 
@@ -45,7 +45,7 @@ class App extends Component {
       {<Subject 
         title={this.state.subject.title} 
         sub={this.state.subject.sub}
-        onChangePage={function(){
+        onChangePage = {function(){
           this.setState({mode:'welcome'})
         }.bind(this)}
         >
