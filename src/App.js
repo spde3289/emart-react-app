@@ -42,18 +42,28 @@ class App extends Component {
 
     return ( 
       <div className ="App">
-      {<Subject 
-        title={this.state.subject.title} 
-        sub={this.state.subject.sub}
-        onChangePage = {function(){
-          this.setState({mode:'welcome'})
-        }.bind(this)}
-        >
-      </Subject>}
-      <Toc onChangePage={function(id){
-        this.setState({mode:'read',selected_content_id:Number(id)})
-      }.bind(this)} data={this.state.content}></Toc>
-      <Content title= {_title} desc= {_desc}></Content>
+        {<Subject 
+          title={this.state.subject.title} 
+          sub={this.state.subject.sub}
+          onChangePage = {function() {
+            this.setState({mode:'welcome'});
+          }.bind(this)}>
+        </Subject>}
+
+        <Toc 
+          onChangePage={function(id) {
+            this.setState({
+              mode:'read',
+              selected_content_id:Number(id)
+            });
+          }.bind(this)} 
+          data={this.state.content}>
+        </Toc>
+
+        <Content 
+          title= {_title} 
+          desc= {_desc}>
+        </Content>
       </div>
     );
   };
