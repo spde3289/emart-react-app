@@ -9,7 +9,7 @@ class Content extends Component{
         {this.props.desc}
         </article>
       );
-    }
-  }
+    };
+  };
 
 export default Content;
