@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import Toc from "./conponents/Toc";
 import Subject from './conponents/Subject';
-import Content from './conponents/Content';
+import CreateContent from './conponents/CreateContent';
+import ReadContent from './conponents/ReadContent';
 import Control from './conponents/control';
 import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
+    this.max_content_id = 3;
     this.state = {
-      mode:'read',
+      mode:'Create',
       selected_content_id:2,
       subject:{title:'WEB', sub:'World Wide Web'},
       Welcome:{title:'welcome', desc:'Hello, React!!'},
@@ -23,11 +25,12 @@ class App extends Component {
   };
 
   render() {
-    let _title, _desc = null;
-
+    let _title, _desc,_article = null;
+    
     if(this.state.mode === 'welcome'){
       _title = this.state.Welcome.title;
       _desc = this.state.Welcome.desc;
+      _article = <ReadContent title={_title} desc={_desc}></ReadContent>;
     } else if(this.state.mode === 'read'){
       var i  = 0;
       while(i < this.state.content.length){
@@ -39,6 +42,21 @@ class App extends Component {
         };
         i++;
       };
+      _article = <ReadContent title={_title} desc={_desc}></ReadContent>;
+    }else if(this.state.mode === 'Create'){
+      _article = <CreateContent onSubmit={function(_title, _desc){
+        this.max_content_id += 1;
+        /* this.state.content.push(
+          {id:this.max_content_id, title:_title, desc:_desc}
+        ); */
+        let _content = this.state.content.concat(
+          {id:this.max_content_id, title:_title, desc:_desc}
+        );
+        this.setState({
+          content: _content
+        });
+        console.log(_title, _desc);
+      }.bind(this)}></CreateContent>;
     };
 
     return ( 
@@ -65,11 +83,10 @@ class App extends Component {
             mode:_mode
           });
         }.bind(this)}>
-        </Control>asfzzz
-        <Content 
-          title= {_title} 
-          desc= {_desc}>
-        </Content>
+        </Control>
+
+          {_article}
+
       </div>
     );
   };
