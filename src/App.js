@@ -4,6 +4,7 @@ import Subject from './conponents/Subject';
 import CreateContent from './conponents/CreateContent';
 import ReadContent from './conponents/ReadContent';
 import Control from './conponents/control';
+import UpdateContent from './conponents/UpdateContent';
 import './App.css';
 
 class App extends Component {
@@ -57,7 +58,22 @@ class App extends Component {
         });
         console.log(_title, _desc);
       }.bind(this)}></CreateContent>;
-    };
+    }else if(this.state.mode === 'Update'){
+      _article = <UpdateContent onSubmit={function(_title, _desc){
+        this.max_content_id += 1;
+        /* this.state.content.push(
+          {id:this.max_content_id, title:_title, desc:_desc}
+        ); */
+        let _content = this.state.content.concat(
+          {id:this.max_content_id, title:_title, desc:_desc}
+        );
+        this.setState({
+          content: _content
+        });
+        console.log(_title, _desc);
+      }.bind(this)}></UpdateContent>;
+    }
+
 
     return ( 
       <div className ="App">
@@ -70,7 +86,7 @@ class App extends Component {
         </Subject>}
 
         <Toc 
-          onChangePage={function(id) {
+          onChangePage={function(id){
             this.setState({
               mode:'read',
               selected_content_id:Number(id)
