@@ -85,7 +85,7 @@ function App() {
       newTopics.push(newTopic);
       setTopics(newTopics);
       setMode('read');
-      //setId(nextId);
+      setId(nextId);
       setnextId(nextId+1);
     }}></Create>
   }
