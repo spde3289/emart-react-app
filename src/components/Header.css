@@ -1,0 +1,42 @@
+@import url(./css/reset.css);
+@import url(./css/core.css);
+
+#topbar {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.topbar {
+    height: 36px;
+}
+
+.topbar ul li{
+    padding: 0 10px;
+    border-left: 1px solid #e5e5e5;
+}
+
+.nleft li:first-child{
+    border-left: none;
+}
+.nright li:first-child{
+    border-left: none;
+}
+
+
+.topbar nav {
+    width: 980px;
+    padding-top: 12px;
+    margin: 0 auto;
+}
+
+.nleft{
+    float: left;
+    display: flex;
+    font-size: 13px;
+}
+
+.nright{
+    float: right;
+    right: 0;
+    display: flex;
+    font-size: 13px;
+}

@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+//import React, {Component} from 'react';
+import'./Header.css';
 
 function Header(){
     return (
         <section>
-        <div>
-            <header>
+        <div id="topbar">
+            <header className="topbar ibx">
                 <nav>
-                    <ul >
+                    <ul className="nleft">
                         <li>
                             <a href="/">PEACOCK</a>
                         </li>
@@ -20,7 +21,7 @@ function Header(){
                             <a href="/">문화센터</a>
                         </li>
                     </ul>
-                    <ul>
+                    <ul className="nright">
                         <li>
                             <a href="/">My이마트</a>
                         </li>

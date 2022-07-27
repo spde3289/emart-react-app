@@ -1,0 +1,195 @@
+@import url(./css/reset.css);
+@import url(./css/core.css);
+
+#footer .foot_util{
+    width: 980px;
+    margin: 0 auto;
+    letter-spacing: -2px;
+}
+
+.right{
+    position: relative;
+    float: right;
+    width: 210px;
+}
+
+.f_menu{
+    position: relative;
+    padding: 30px 0 30px;
+    border-bottom: 2px solid #000;
+    letter-spacing: 0;
+}
+
+.f_left{
+    display: inline-block;
+}
+
+.f_left ul > li{
+    margin-right: 15px;
+}
+
+.f_menu ul li{
+    float: left;
+}
+
+.f_left ul > li > ul{
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    top: 4px;
+}
+
+.f_left ul > li > a{
+    float: left;
+    font-size: 16px;
+    color: #000;
+}
+
+.f_left ul > li > ul > li{
+    height: 10px;
+    padding: 0 6px;
+    margin: 0;
+    border-left: 1px solid #e5e5e5;
+}
+
+.f_left ul > li > ul > li > a{
+    display: inline-block;
+    margin-top: -2px;
+    font-size: 14px;
+    color: #666;
+    letter-spacing: -1px;
+}
+
+.f_left ul > li > ul > li:first-child{
+    border-left: none;
+} 
+
+.f_right{
+    float: right;
+}
+
+.f_right li span{
+    font-size: 14px;
+    margin: 0 0 0 1px;
+    vertical-align: top;
+}
+
+.f_right ul li a{
+    font-size: 14px;
+    color: #000;
+}
+
+.f_right li {
+    margin-right: 0;
+}
+
+.f_left a:hover{
+    text-decoration: underline;
+}
+
+.f_right a:hover{
+    text-decoration: underline;
+}
+
+.company_info{
+    padding: 28px 0 44px;
+}
+
+.company_info em {
+    float: left;
+    margin-right: 17px;
+}
+
+#footer .company_info .detail_info {
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.company_info .detail_info >li {
+    float: left;
+    margin-right: 14px;
+    font-size: 13px
+}
+
+.important a {
+    color: #ff3c50;
+}
+
+.footer_link {
+    margin-top: 30px;
+}
+
+.footer_link li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer_link a {
+    font-size: 13px;
+    color: #000;
+}
+
+.partner-links {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.partner-links li {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.partner-links a {
+    font-size: 13px;
+    color: #333;
+}
+
+.partner-links a > span {
+    color: #666;
+}
+
+.family_link{
+    margin: 30px 0;
+}
+
+.family_link select{
+    width: 150px;
+    height: 42px;
+    border: none;
+    border-bottom: 2px solid #010101;
+    font-size: 14px;
+    padding : 5px;
+}
+
+.family_link button{
+    width: 50px;
+    float: right;
+    margin-top: 5px;
+    line-height: 28px;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+
+select option{
+    font-size: 12px;
+    line-height: 100%;
+    height: 25px;
+    padding: 5px;
+}
+
+.cs-call{
+    font-size: 13px;
+    color: #666;
+    letter-spacing: -1px;
+}
+
+.cs-call li {
+    margin-bottom: 12px;
+}
+
+.cs-call em{
+    color: #333;
+    font-style: normal;
+}

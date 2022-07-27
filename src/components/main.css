@@ -1,0 +1,305 @@
+@import url(./css/reset.css);
+@import url(./css/core.css);
+
+.c1 {
+    position: relative;
+    height: 560px;
+    width: 1180px;
+    padding: 0 42px;
+    margin: 0 auto;
+}
+
+.c1_1 {
+    position: relative;
+    margin: -75px auto;
+    height: 149px;
+    width: 900px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.left_btn {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    margin-top: -19px;
+    width: 22px;
+    height: 38px;
+    background: url('../imgs/main_top_slide.png') no-repeat 0 -153px;
+}
+
+.right_btn{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 22px;
+    height: 38px;
+    margin-top: -19px;
+    background: url('../imgs/main_top_slide.png') no-repeat 0 -97px;
+}
+
+.swiper{
+    display: inline-block;
+    width: 7px;
+    margin-bottom: 5px;
+}
+
+.control_1{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 24px;
+    text-align: center;
+}
+
+.dot{
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin-bottom: 7px;
+    background: url(../imgs/main_top_slide.png) no-repeat;
+    cursor: pointer;
+}
+
+.dot_on{
+    background-position: 0 -12px;
+}
+
+.slide_on{
+    display: block;
+}
+
+.img::before{
+    content: url("../imgs/20211202_0818009_002.jpg")
+}
+
+
+.slide_start{
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: url('../imgs/main_top_slide.png') 0 -28px no-repeat;
+}
+
+.slide_stop{
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: url(../imgs/main_top_slide.png) 0 -58px no-repeat;
+}
+
+.swiper_dot{
+    background-position: 0 -12px;
+}
+
+.inner{
+    position: relative;
+    width: 505px;
+    height: 67px;
+    padding: 0 65px 0 150px;
+    margin: 40px auto;
+    border-bottom: 2px solid #000;
+}
+
+.c1 div a img::before{
+    content: url("../imgs/20211202_0818009_002.jpg")
+}
+
+.inner h2{
+    position: absolute;
+    left: 0;
+    top: -3px;
+    font-size: 20px;
+    color: #000;
+}
+
+.inner ul{
+    width: 505px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.sub1{
+    width: 5000px;
+}
+
+.ani{
+    animation: playlist 56.8515s linear 1s infinite normal none running;
+} 
+
+.sub1 li{
+    float: left;
+    padding-right: 50px;
+    font-size: 15px;
+}
+
+@keyframes playlist {
+    100% {
+        transform: translateX(-2368px);
+    }
+}
+
+.control{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.control span{
+    width:24px;
+    height: 24px;
+    display: none;
+}
+
+.control span.on{
+    display: block;
+}
+
+
+
+.stop{ 
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: url(../imgs/main_top_slide.png) no-repeat;
+    background-position: 0 -58px;
+}
+
+.start{
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: url(../imgs/main_top_slide.png) no-repeat;
+    background-position: 0 -28px;
+}
+
+
+
+.c2 {
+    width: 980px;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+
+.main{ 
+    width: 1644px;
+    transform: translateX(-332px);
+}
+.c2 h2 {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    line-height: 1;
+}
+
+.mainbenner{
+    display: flex;
+    width: 1644px;
+}
+
+.slide{
+    width: 316px;
+    margin-right: 16px;
+}
+
+.slide span{
+    display: block;
+    padding: 50px 0 0 0;
+    line-height: 1.5;
+    text-align: center;
+    color: #333;
+}
+
+.slide :hover span{
+    text-decoration: underline;
+}
+
+.c3 {
+    width: 996px;
+    height: 568px;
+    margin: 100px auto;
+}
+
+.c3 h2{
+    margin-bottom: 32px;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    line-height: 1;
+}
+
+.maincover{
+    width: 980px;
+    margin: 0 auto;
+}
+
+.maincover div{
+    float: left;
+}
+
+#leftimg{
+    margin-right: 332px;
+}
+
+#rightimg{
+    float: left;
+    width: 316px;
+    margin-left: -316px;
+}
+
+#rightimg :first-child{
+    margin-bottom: 11px;
+}
+
+.size-up{
+    width: 316px;
+    height: 248px;
+}
+
+.c5{
+    width: 1168px;
+    height: 124px;
+    margin: 100px auto;
+}
+
+.c5 ul{
+    overflow: hidden;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+
+.over{
+    display: none;
+}
+
+
+.c5 li:hover img:first-child{
+    display: none;
+}
+
+.c5 li{
+    display: inline-block;
+    text-align: center;
+    width: 140px;
+}
+
+.c5 span{
+    display: block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #808080;
+    line-height: 1;
+}
+
+.c5 li:hover .over{
+    display: inline;
+}
+
+.c5 li:hover span{
+    color: #000;
+}

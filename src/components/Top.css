@@ -1,0 +1,91 @@
+@import url(./css/reset.css);
+@import url(./css/core.css);
+
+.top{
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 0 30px;
+}
+
+.top nav{
+    width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.top nav ul{
+    display:inline-block;
+    margin-left: -45px;
+}
+
+.top nav ul li{
+    float: left;
+    margin: 0 35px;
+}
+
+.m01 a{
+    margin-top: -10px;
+}
+
+.top nav ul li a{
+    padding-bottom: 10px;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.m01 a{
+    border-bottom: none;
+}
+
+.top nav ul li:hover:not(.m01){
+    border-bottom: 2px solid #000;
+}
+
+.sub_contain {
+    display: none;
+    position: absolute;
+    top: 67px;
+    left: 50%;
+    padding: 18px 0;
+    margin-left: 45px;
+    width: 423px;
+    background: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.top nav ul li:hover .sub_contain{   
+    display:block;
+}
+
+/* .topSubmenu{
+    display: none;
+    position: absolute;
+    left: 53%;
+    padding: 18px 0;
+    width: 423px;
+    background: none;
+    overflow: hidden;
+    white-space: nowrap
+}
+ */
+
+
+
+#top .topSubmenu ol li{
+    float: left;
+    margin: 0 7px;
+    font-size: 14px;
+    color: #666666;
+}
+
+#top .topSubmenu ol li a{
+    color: #666666;
+    font-size: 14px;
+}
+
+#top .topSubmenu ol li:hover a{
+    color: #000;
+}
