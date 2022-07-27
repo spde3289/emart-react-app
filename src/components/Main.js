@@ -1,13 +1,17 @@
 import './main.css';
 
 function Main(){
+
+
+
+
     return (
         <div className="m1">
         <main className="cont ibx">
         <section className="cbx c1">
             <div>
                 <a className="left_btn btns" href="/"><span></span></a>
-                <a href="/" className="changeImg">
+                <a href="/asd" className="changeImg">
                     <img src="" alt=""/>
                 </a>
                 <a className="right_btn btns" href="/"><span></span></a>

@@ -6,6 +6,17 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 function App(){
+  window.addEventListener('load', ()=>{
+    const a = document.getElementsByTagName('a'); 
+      for(let i = 0;i < a.length; i++){
+        a[i].addEventListener('click', e =>{
+            if(a[i].pathname === '/'){
+                e.preventDefault();
+                console.log('/');
+            };
+        })
+    };
+  });
   return(
     <div>
       <Header></Header>
