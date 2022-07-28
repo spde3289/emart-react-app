@@ -1,6 +1,25 @@
 import './footer.css';
 
 function Footer(){
+    const urlList = [
+        "https://company.emart.com/ko/main.do",
+        "https://www.shinsegaepoint.com/",
+        "https://emart.ssg.com/?ckwhere=emart",
+        "http://www.traders.co.kr/index.jsp",
+        "http://www.emarteveryday.co.kr/",
+        "https://www.emart24.co.kr/",
+        "https://www.shinsegaegroupnewsroom.com/",
+        "https://www.shinsegae.com/index.do",
+        "http://www.sikorea.co.kr/main",
+        "http://www.shinsegaefood.com/main.sf",
+        "https://www.shinsegae-enc.com/",
+        "http://www.sinc.co.kr/main.do",
+        "https://www.starbucks.co.kr/index.do",
+        "https://www.josunhotel.com/intro.do",
+        "https://www.premiumoutlets.co.kr/main/ko",
+        "https://www.ssg.com/"
+    ];
+    
     return (
         <footer className="info ibx" id="footer">
         <div className="foot_util">
@@ -137,7 +156,12 @@ function Footer(){
                             <option value="14">신세계사이먼</option>
                             <option value="15">SSG.COM</option>
                         </select>
-                        <button id="myBtn" type="button" /* onclick=goFamilySite() */ title="새창열림">확인</button>
+                        <button id="myBtn" type="button"  onClick={ ()=>{
+                            const values = document.getElementById("familysite");
+                            if(urlList[values.value]){
+                            window.open(urlList[values.value])
+                            }
+                        }} title="새창열림">확인</button>
                     </div>
                     <ul className="cs-call">
                         <li>
