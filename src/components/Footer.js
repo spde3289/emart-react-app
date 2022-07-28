@@ -1,24 +1,49 @@
 import './footer.css';
+import {useState} from 'react';
+
+function SelectBox(){
+
+    const [select, setSelect] = useState([
+        {id:0, name:'FAMILY SITE', link:''},
+        {id:1, name:'이마트 회사소개', link:'https://company.emart.com/ko/main.do'},
+        {id:2, name:'신세계포인트', link:"https://www.shinsegaepoint.com/"},
+        {id:3, name:'이마트몰', link:'https://emart.ssg.com/?ckwhere=emart'},
+        {id:4, name:'이마트 트레이더스', link:'http://www.traders.co.kr/index.jsp'},
+        {id:5, name:'이마트 에브리데이', link:'http://www.emarteveryday.co.kr/'},
+        {id:6, name:'이마트24', link:'https://www.emart24.co.kr/'},
+        {id:7, name:'신세계그룹', link:'https://www.shinsegaegroupnewsroom.com/'},
+        {id:8, name:'신세계백화점', link:'https://www.shinsegae.com/index.do'},
+        {id:9, name:'신세계인터내셔날', link:'http://www.sikorea.co.kr/main'},
+        {id:10, name:'신게셰푸드', link:'http://www.shinsegaefood.com/main.sf'},
+        {id:11, name:'신세계건설', link:'https://www.shinsegae-enc.com/'},
+        {id:12, name:'신세계아이앤씨', link:'http://www.sinc.co.kr/main.do'},
+        {id:13, name:'스타벅스커피코리아', link:'https://www.starbucks.co.kr/index.do'},
+        {id:14, name:'조선호텔앤리조트', link:'https://www.josunhotel.com/intro.do'},
+        {id:15, name:'신세계사이먼', link:'"https://www.premiumoutlets.co.kr/main/ko'},
+        {id:16, name:'SSG.COM', link:'https://www.ssg.com/'}
+    ]);
+
+    const SelectList = [];
+
+    for(let i = 0; i < select.length; i++){
+        SelectList.push(
+            <option key={select[i].id}>{select[i].name}</option>
+        );
+        console.log(select[i].id);
+    };
+
+    return(
+    <div className="family_link">
+                        <label htmlFor="familysite" className="hide">FAMILY SITE</label>
+                        <select id="familysite">
+                            {SelectList}
+                        </select>
+                        <button id="myBtn" type="button" title="새창열림">확인</button>
+                    </div>
+    );
+};
 
 function Footer(){
-    const urlList = [
-        "https://company.emart.com/ko/main.do",
-        "https://www.shinsegaepoint.com/",
-        "https://emart.ssg.com/?ckwhere=emart",
-        "http://www.traders.co.kr/index.jsp",
-        "http://www.emarteveryday.co.kr/",
-        "https://www.emart24.co.kr/",
-        "https://www.shinsegaegroupnewsroom.com/",
-        "https://www.shinsegae.com/index.do",
-        "http://www.sikorea.co.kr/main",
-        "http://www.shinsegaefood.com/main.sf",
-        "https://www.shinsegae-enc.com/",
-        "http://www.sinc.co.kr/main.do",
-        "https://www.starbucks.co.kr/index.do",
-        "https://www.josunhotel.com/intro.do",
-        "https://www.premiumoutlets.co.kr/main/ko",
-        "https://www.ssg.com/"
-    ];
     
     return (
         <footer className="info ibx" id="footer">
@@ -135,34 +160,9 @@ function Footer(){
                     </div>
                 </div>
                 <div className="right">
-                    <div className="family_link">
-                        <label htmlFor="familysite" className="hide">FAMILY SITE</label>
-                        <select id="familysite">
-                            <option >FAMILY SITE</option>
-                            <option value="0">이마트 회사소개</option>
-                            <option value="1">신세계포인트</option>
-                            <option value="2">이마트몰</option>
-                            <option value="3">이마트 트레이더스</option>
-                            <option value="4">이마트 에브리데이</option>
-                            <option value="5">이마트24</option>
-                            <option value="6">신세계그룹</option>
-                            <option value="7">신세계백화점</option>
-                            <option value="8">신세계인터내셔날</option>
-                            <option value="9">신세계푸트</option>
-                            <option value="10">신세계건설</option>
-                            <option value="11">신세계아이앤씨</option>
-                            <option value="12">스타벅스커피코리아</option>
-                            <option value="13">조선호텔앤리조트</option>
-                            <option value="14">신세계사이먼</option>
-                            <option value="15">SSG.COM</option>
-                        </select>
-                        <button id="myBtn" type="button"  onClick={ ()=>{
-                            const values = document.getElementById("familysite");
-                            if(urlList[values.value]){
-                            window.open(urlList[values.value])
-                            }
-                        }} title="새창열림">확인</button>
-                    </div>
+                    
+                    <SelectBox ></SelectBox>
+
                     <ul className="cs-call">
                         <li>
                             <em>이마트대표전화:</em>02-380-5678

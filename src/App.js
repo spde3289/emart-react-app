@@ -8,12 +8,10 @@ import Footer from './components/Footer';
 function ATag(){
   window.addEventListener('load', ()=>{
     const a = document.getElementsByTagName('a'); 
-    console.log(a)
       for(let i = 0;i < a.length; i++){
         a[i].addEventListener('click', e =>{
             if(a[i].pathname === '/'){
                 e.preventDefault();
-                console.log('/');
             };
         });
     };
