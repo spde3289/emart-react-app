@@ -145,6 +145,7 @@ function App() {
       <Nav topics={topics} onChangeMode={(_id)=>{
         setMode('READ');
         setId(_id);
+        
       }}></Nav>
       {content}
       <ul>

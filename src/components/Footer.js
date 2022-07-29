@@ -2,8 +2,8 @@ import './footer.css';
 import {useState} from 'react';
 
 function SelectBox(){
-
-    const [select, setSelect] = useState([
+    const [_link, _setlink] = useState();
+    const select = [
         {id:0, name:'FAMILY SITE', link:''},
         {id:1, name:'이마트 회사소개', link:'https://company.emart.com/ko/main.do'},
         {id:2, name:'신세계포인트', link:"https://www.shinsegaepoint.com/"},
@@ -19,39 +19,41 @@ function SelectBox(){
         {id:12, name:'신세계아이앤씨', link:'http://www.sinc.co.kr/main.do'},
         {id:13, name:'스타벅스커피코리아', link:'https://www.starbucks.co.kr/index.do'},
         {id:14, name:'조선호텔앤리조트', link:'https://www.josunhotel.com/intro.do'},
-        {id:15, name:'신세계사이먼', link:'"https://www.premiumoutlets.co.kr/main/ko'},
+        {id:15, name:'신세계사이먼', link:'https://www.premiumoutlets.co.kr/main/ko'},
         {id:16, name:'SSG.COM', link:'https://www.ssg.com/'}
-    ]);
-
+    ];
     const SelectList = [];
-
-    let link = select.link
-   
 
     for(let i = 0; i < select.length; i++){
         SelectList.push(
-            <option key={select[i].id} value={select[i].id} link={select[i].link}>{select[i].name}</option>
+            <option 
+            key={select[i].id} 
+            value={select[i].id} 
+            link={select[i].link}
+            >{select[i].name}</option>
         );
-        //console.log(select[i].link);
     };
 
     return(
-    <div className="family_link">
-                        <label htmlFor="familysite" className="hide">FAMILY SITE</label>
-                        <select id="familysite" link={link}  onChange={e=>{ 
-                                console.log(e.target.link);
-                            }}>
-                            {SelectList}
-                        </select>
-                        <button id="myBtn" type="button" onClick={()=>{ 
-                           
-                        }}  title="새창열림">확인</button>
-                    </div>
+        <div className="family_link">
+            <label htmlFor="familysite" className="hide">FAMILY SITE</label>
+            <select id="familysite" onChange={e=>{
+                _setlink(select[e.target.value].link);
+            }}>
+                {SelectList}
+            </select>
+            <button id="myBtn" type="button" onClick={()=>{ 
+                if(_link){
+                    window.open(_link);
+                };
+            }}  title="새창열림">확인</button>
+         </div>
     );
 };
 
 function Footer(){
     
+
     return (
         <footer className="info ibx" id="footer">
         <div className="foot_util">
@@ -168,7 +170,7 @@ function Footer(){
                 </div>
                 <div className="right">
                     
-                    <SelectBox></SelectBox>
+                    <SelectBox ></SelectBox>
 
                     <ul className="cs-call">
                         <li>
