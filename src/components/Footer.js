@@ -25,6 +25,7 @@ function SelectBox(){
 
     const SelectList = [];
 
+    let link = select.link
    
 
     for(let i = 0; i < select.length; i++){
@@ -37,10 +38,10 @@ function SelectBox(){
     return(
     <div className="family_link">
                         <label htmlFor="familysite" className="hide">FAMILY SITE</label>
-                        <select id="familysite" onChange={e=>{ 
-                                console.log(state)
+                        <select id="familysite" link={link}  onChange={e=>{ 
+                                console.log(e.target.link);
                             }}>
-                            {SelectListm}
+                            {SelectList}
                         </select>
                         <button id="myBtn" type="button" onClick={()=>{ 
                            
@@ -167,7 +168,7 @@ function Footer(){
                 </div>
                 <div className="right">
                     
-                    <SelectBox ></SelectBox>
+                    <SelectBox></SelectBox>
 
                     <ul className="cs-call">
                         <li>
