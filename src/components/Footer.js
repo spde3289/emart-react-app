@@ -27,8 +27,8 @@ function SelectBox(){
     for(let i = 0; i < select.length; i++){
         SelectList.push(
             <option 
-            key={select[i].id} 
-            value={select[i].id} 
+            key={select[i].id}
+            value={select[i].id}
             link={select[i].link}
             >{select[i].name}</option>
         );

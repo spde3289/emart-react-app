@@ -2,29 +2,12 @@ import './main.css';
 
 function Main(){
 
+    const TextList = [
+        {id:0 ,text:'삼성/LG 대형가전 최대 30만원 할인'},
+    ]
 
-
-
-    return (
-        <div className="m1">
-        <main className="cont ibx">
-        <section className="cbx c1">
-            <div>
-                <a className="left_btn btns" href="/"><span></span></a>
-                <a href="/asd" className="changeImg">
-                    <img src="" alt=""/>
-                </a>
-                <a className="right_btn btns" href="/"><span></span></a>
-                <div className="control_1">
-                    <div className="swiper">
-                        <a className="dot"  href="/"><span></span></a>
-                        <a className="dot"  href="/"><span></span></a>
-                        <a className="dot"  href="/"><span></span></a>
-                    </div>
-                    <a className="stop on" href="/"><span></span></a>
-                    <a className="start" href="/"><span></span></a>
-                </div>
-            </div>
+    function TextSlide() {
+        return(
             <div> 
                 <div className="c1_1">
                     <div className="inner">
@@ -56,12 +39,39 @@ function Main(){
                             </div>
                         </ul>
                         <div className="control">
-                            <span className="stop on" id="stop"></span>
+                            <span className="stop on" id="stop" onClick={e=>{
+                                console.log(e.target)
+                            }
+                            }></span>
                             <span className="start" id="start"></span>
                         </div>
                     </div>
                 </div>
             </div>
+        );
+    };
+
+    return (
+        <div className="m1">
+        <main className="cont ibx">
+        <section className="cbx c1">
+            <div>
+                <a className="left_btn btns" href="/"><span></span></a>
+                <a href="/asd" className="changeImg">
+                    <img src="" alt=""/>
+                </a>
+                <a className="right_btn btns" href="/"><span></span></a>
+                <div className="control_1">
+                    <div className="swiper">
+                        <a className="dot"  href="/"><span></span></a>
+                        <a className="dot"  href="/"><span></span></a>
+                        <a className="dot"  href="/"><span></span></a>
+                    </div>
+                    <a className="stop on" href="/"><span></span></a>
+                    <a className="start" href="/"><span></span></a>
+                </div>
+            </div>
+            <TextSlide></TextSlide>
         </section>
         <section className="cbx c2">
             <div className="main">
