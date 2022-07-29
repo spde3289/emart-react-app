@@ -1,55 +1,58 @@
 import './main.css';
 
-function Main(){
 
+function TextSlide() {
+    
     const TextList = [
-        {id:0 ,text:'삼성/LG 대형가전 최대 30만원 할인'},
-    ]
+        {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
+        {id:1 , text:'가전 행사상품 구매시 무이자 할부'},
+        {id:2 , text:'삼성/LG 대형가전 최대 80만원 상품권 증정'},
+        {id:3 , text:'일렉트로맨 27 모니터 2만원 할인'},
+        {id:4 , text:'데이즈 아동 봄 꼭 필요한 시리즈 20% 할인'},
+        {id:5 , text:'아동양말/런닝/팬티 2개 이상 구매시 30% 할인'},
+        {id:6 , text:'브랜드 오피스 체어 최대 20% 할인'},
+        {id:7 , text:'필렉회 30% 할인'},
+        {id:8 , text:'네타 초밥 30% 할인'}
+    ];
 
-    function TextSlide() {
-        return(
-            <div> 
-                <div className="c1_1">
-                    <div className="inner">
-                        <h2 className="sbtxt">기분좋은 혜택</h2>
-                        <ul className="sublist">
-                            <div id="ani" className="ani">
-                                <div className="sub1">
-                                    <li>삼성/LG 대형가전 최대 30만원 할인</li>
-                                    <li>가전 행사상품 구매시 무이자 할부</li>
-                                    <li>삼성/LG 대형가전 최대 80만원 상품권 증정</li>
-                                    <li>일렉트로맨 27 모니터 2만원 할인</li>
-                                    <li>데이즈 아동 봄 꼭 필요한 시리즈 20% 할인</li>
-                                    <li>아동양말/런닝/팬티 2개 이상 구매시 30% 할인</li>
-                                    <li>브랜드 오피스 체어 최대 20% 할인</li>
-                                    <li>필렉회 30% 할인</li>
-                                    <li>네타 초밥 30% 할인</li>
-                                </div>
-                                <div className="sub1">
-                                    <li>삼성/LG 대형가전 최대 30만원 할인</li>
-                                    <li>가전 행사상품 구매시 무이자 할부</li>
-                                    <li>삼성/LG 대형가전 최대 80만원 상품권 증정</li>
-                                    <li>일렉트로맨 27 모니터 2만원 할인</li>
-                                    <li>데이즈 아동 봄 꼭 필요한 시리즈 20% 할인</li>
-                                    <li>아동양말/런닝/팬티 2개 이상 구매시 30% 할인</li>
-                                    <li>브랜드 오피스 체어 최대 20% 할인</li>
-                                    <li>필렉회 30% 할인</li>
-                                    <li>네타 초밥 30% 할인</li>
-                                </div>
+    const list = [];
+
+    for(var i=0; i < TextList.length; i++){
+        list.push(
+            <li key={TextList[i].id} value={TextList[i].id}>{TextList[i].text}</li>
+        )
+    };
+
+    return(
+        <div> 
+            <div className="c1_1">
+                <div className="inner">
+                    <h2 className="sbtxt">기분좋은 혜택</h2>
+                    <ul className="sublist">
+                        <div id="ani" className="ani">
+                            <div className="sub1">
+                                {list}
                             </div>
-                        </ul>
-                        <div className="control">
-                            <span className="stop on" id="stop" onClick={e=>{
-                                console.log(e.target)
-                            }
-                            }></span>
-                            <span className="start" id="start"></span>
+                            <div className="sub1">
+                                {list}
+                            </div>
                         </div>
+                    </ul>
+                    <div className="control">
+                        <span className="stop on" id="stop" onClick={e=>{
+                            console.log(e.target)
+                        }
+                        }></span>
+                        <span className="start" id="start"></span>
                     </div>
                 </div>
             </div>
-        );
-    };
+        </div>
+    );
+};
+
+function Main(){
+
 
     return (
         <div className="m1">
