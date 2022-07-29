@@ -25,20 +25,26 @@ function SelectBox(){
 
     const SelectList = [];
 
+   
+
     for(let i = 0; i < select.length; i++){
         SelectList.push(
-            <option key={select[i].id} value={select[i].id}>{select[i].name}</option>
+            <option key={select[i].id} value={select[i].id} link={select[i].link}>{select[i].name}</option>
         );
-        console.log(select[i].id);
+        //console.log(select[i].link);
     };
 
     return(
     <div className="family_link">
                         <label htmlFor="familysite" className="hide">FAMILY SITE</label>
-                        <select id="familysite">
-                            {SelectList}
+                        <select id="familysite" onChange={e=>{ 
+                                console.log(state)
+                            }}>
+                            {SelectListm}
                         </select>
-                        <button id="myBtn" type="button" title="새창열림">확인</button>
+                        <button id="myBtn" type="button" onClick={()=>{ 
+                           
+                        }}  title="새창열림">확인</button>
                     </div>
     );
 };
