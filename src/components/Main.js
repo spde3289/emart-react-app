@@ -1,8 +1,24 @@
 import './main.css';
 
-
 function TextSlide() {
     
+    const ani = document.getElementById('ani')
+    const stop = document.getElementById("stop");
+    const start = document.getElementById("start");
+
+    function Stop(){
+        ani.style.animationPlayState = 'paused';
+        stop.style.display = "none";
+        start.style.display = "block";
+        console.log("stop");
+    };
+    
+    function Play(){
+        ani.style.animationPlayState = "running";
+        start.style.display = "none";
+        stop.style.display = "block";
+        console.log("start");
+    };
     const TextList = [
         {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
         {id:1 , text:'가전 행사상품 구매시 무이자 할부'},
@@ -19,7 +35,7 @@ function TextSlide() {
 
     for(var i=0; i < TextList.length; i++){
         list.push(
-            <li key={TextList[i].id} value={TextList[i].id}>{TextList[i].text}</li>
+            <li key={TextList[i].id}>{TextList[i].text}</li>
         )
     };
 
@@ -39,11 +55,8 @@ function TextSlide() {
                         </div>
                     </ul>
                     <div className="control">
-                        <span className="stop on" id="stop" onClick={e=>{
-                            console.log(e.target)
-                        }
-                        }></span>
-                        <span className="start" id="start"></span>
+                        <span className="stop on" id="stop" onClick={Stop}></span>
+                        <span className="start" id="start" onClick={Play}></span>
                     </div>
                 </div>
             </div>
