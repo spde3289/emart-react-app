@@ -1,24 +1,25 @@
 import './main.css';
-
+import {useRef} from 'react';
 function TextSlide() {
     
-    const ani = document.getElementById('ani')
-    const stop = document.getElementById("stop");
-    const start = document.getElementById("start");
+    const ani = useRef(null)
+    const stop = useRef(null);
+    const start = useRef(null);
 
     function Stop(){
-        ani.style.animationPlayState = 'paused';
-        stop.style.display = "none";
-        start.style.display = "block";
-        console.log("stop");
-    };
+        ani.current.style.animationPlayState = 'paused';
+        stop.current.style.display = "none";
+        start.current.style.display = "block";
+        console.log(ani);
+    }
     
     function Play(){
-        ani.style.animationPlayState = "running";
-        start.style.display = "none";
-        stop.style.display = "block";
+        ani.current.style.animationPlayState = "running";
+        start.current.style.display = "none";
+        stop.current.style.display = "block";
         console.log("start");
     };
+
     const TextList = [
         {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
         {id:1 , text:'가전 행사상품 구매시 무이자 할부'},
@@ -30,22 +31,22 @@ function TextSlide() {
         {id:7 , text:'필렉회 30% 할인'},
         {id:8 , text:'네타 초밥 30% 할인'}
     ];
-
+    
     const list = [];
-
+    
     for(var i=0; i < TextList.length; i++){
         list.push(
             <li key={TextList[i].id}>{TextList[i].text}</li>
-        )
-    };
-
-    return(
-        <div> 
+            )
+        };
+        
+        return(
+            <div> 
             <div className="c1_1">
                 <div className="inner">
                     <h2 className="sbtxt">기분좋은 혜택</h2>
                     <ul className="sublist">
-                        <div id="ani" className="ani">
+                        <div id="ani" className="ani" ref={ani}>
                             <div className="sub1">
                                 {list}
                             </div>
@@ -55,8 +56,8 @@ function TextSlide() {
                         </div>
                     </ul>
                     <div className="control">
-                        <span className="stop on" id="stop" onClick={Stop}></span>
-                        <span className="start" id="start" onClick={Play}></span>
+                        <span className="stop on" id="stop" ref={stop} onClick={Stop}></span>
+                        <span className="start" id="start" ref={start} onClick={Play}></span>
                     </div>
                 </div>
             </div>
