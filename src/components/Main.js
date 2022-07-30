@@ -1,24 +1,26 @@
 import './main.css';
-import {useRef} from 'react';
+let ani = document.getElementById("ani");
+let stop = document.getElementById("stop");
+let start = document.getElementById("start");
+function Stop(){
+    ani.style.animationPlayState = 'paused';
+    stop.style.display = "none";
+    start.style.display = "block";
+    console.log(ani);
+}
+
+function Play(){
+    ani.style.animationPlayState = "running";
+    start.style.display = "none";
+    stop.style.display = "block";
+    console.log("start");
+};
+/* const ani = useRef(null)
+const stop = useRef(null);
+const start = useRef(null); */
 function TextSlide() {
     
-    const ani = useRef(null)
-    const stop = useRef(null);
-    const start = useRef(null);
 
-    function Stop(){
-        ani.current.style.animationPlayState = 'paused';
-        stop.current.style.display = "none";
-        start.current.style.display = "block";
-        console.log(ani);
-    }
-    
-    function Play(){
-        ani.current.style.animationPlayState = "running";
-        start.current.style.display = "none";
-        stop.current.style.display = "block";
-        console.log("start");
-    };
 
     const TextList = [
         {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
