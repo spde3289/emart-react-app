@@ -126,6 +126,9 @@
 .ani{
     animation: playlist 56.8515s linear 1s infinite normal none running;
 } 
+.aniStop{
+    animation-play-state: paused;
+}
 
 .sub1 li{
     float: left;

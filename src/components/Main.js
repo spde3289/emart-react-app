@@ -1,27 +1,20 @@
 import './main.css';
-let ani = document.getElementById("ani");
-let stop = document.getElementById("stop");
-let start = document.getElementById("start");
-function Stop(){
-    ani.style.animationPlayState = 'paused';
-    stop.style.display = "none";
-    start.style.display = "block";
-    console.log(ani);
+
+
+
+function Stop(prorp){
+    prorp.classList.add('aniStop')
+    console.log(prorp)
 }
 
 function Play(){
-    ani.style.animationPlayState = "running";
-    start.style.display = "none";
-    stop.style.display = "block";
-    console.log("start");
+    
 };
 /* const ani = useRef(null)
 const stop = useRef(null);
 const start = useRef(null); */
 function TextSlide() {
     
-
-
     const TextList = [
         {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
         {id:1 , text:'가전 행사상품 구매시 무이자 할부'},
@@ -48,7 +41,7 @@ function TextSlide() {
                 <div className="inner">
                     <h2 className="sbtxt">기분좋은 혜택</h2>
                     <ul className="sublist">
-                        <div id="ani" className="ani" ref={ani}>
+                        <div id="ani" className="ani" >
                             <div className="sub1">
                                 {list}
                             </div>
@@ -58,8 +51,10 @@ function TextSlide() {
                         </div>
                     </ul>
                     <div className="control">
-                        <span className="stop on" id="stop" ref={stop} onClick={Stop}></span>
-                        <span className="start" id="start" ref={start} onClick={Play}></span>
+                        <span className="stop on" id="stop"  onClick={e=>{
+                            Stop(e.target)
+                        }}></span>
+                        <span className="start" id="start" onClick={Play} ></span>
                     </div>
                 </div>
             </div>
