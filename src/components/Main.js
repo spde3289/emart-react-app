@@ -2,6 +2,9 @@ import './main.css';
 import {useState} from 'react';
 
 function ImgSlide(){
+    const [img, setimg] = useState(imgList[0]);
+
+
     const imgList = [
         "../imgs/20211202_0818009_002.jpg",
         "../imgs/20211202_1543008_040.jpg",
@@ -11,9 +14,9 @@ function ImgSlide(){
         <div>
             <a className="left_btn btns" href="/"><span></span></a>
             <a href="/asd" className="changeImg">
-                <img src="../imgs/20211202_0818009_002.jpg" alt=""/>
+                <img src={img} alt=""/>
             </a>
-            <a className="right_btn btns" href="/"><span></span></a>
+            <a className="right_btn btns"  href="/"><span></span></a>
             <div className="control_1">
                 <div className="swiper">
                     <a className="dot"  href="/"><span></span></a>
