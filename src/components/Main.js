@@ -1,19 +1,32 @@
 import './main.css';
+import {useState} from 'react';
 
+function ImgSlide(){
 
-
-function Stop(prorp){
-    prorp.classList.add('aniStop')
-    console.log(prorp)
+    return(
+        <div>
+            <a className="left_btn btns" href="/"><span></span></a>
+            <a href="/asd" className="changeImg">
+                <img src="" alt=""/>
+            </a>
+            <a className="right_btn btns" href="/"><span></span></a>
+            <div className="control_1">
+                <div className="swiper">
+                    <a className="dot"  href="/"><span></span></a>
+                    <a className="dot"  href="/"><span></span></a>
+                    <a className="dot"  href="/"><span></span></a>
+                </div>
+                <a className="stop on" href="/"><span></span></a>
+                <a className="start" href="/"><span></span></a>
+            </div>
+        </div>
+    )
 }
 
-function Play(){
-    
-};
-/* const ani = useRef(null)
-const stop = useRef(null);
-const start = useRef(null); */
 function TextSlide() {
+
+    const [ani, setani] = useState()
+    const [on, seton] = useState(true)
     
     const TextList = [
         {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
@@ -35,13 +48,13 @@ function TextSlide() {
             )
         };
         
-        return(
-            <div> 
+    return(
+        <div> 
             <div className="c1_1">
                 <div className="inner">
                     <h2 className="sbtxt">기분좋은 혜택</h2>
                     <ul className="sublist">
-                        <div id="ani" className="ani" >
+                        <div id="ani" className={'ani '+ani}>
                             <div className="sub1">
                                 {list}
                             </div>
@@ -51,10 +64,14 @@ function TextSlide() {
                         </div>
                     </ul>
                     <div className="control">
-                        <span className="stop on" id="stop"  onClick={e=>{
-                            Stop(e.target)
+                        <span className={'stop '+ (on ? "on" : "")} id="stop"  onClick={(e)=>{
+                            setani('aniStop')
+                            seton()
                         }}></span>
-                        <span className="start" id="start" onClick={Play} ></span>
+                        <span className={"start " + (!on ? "on" : "")} id="start" onClick={(e)=>{
+                            setani()
+                            seton(true)
+                        }}></span>
                     </div>
                 </div>
             </div>
@@ -64,27 +81,11 @@ function TextSlide() {
 
 function Main(){
 
-
     return (
         <div className="m1">
         <main className="cont ibx">
         <section className="cbx c1">
-            <div>
-                <a className="left_btn btns" href="/"><span></span></a>
-                <a href="/asd" className="changeImg">
-                    <img src="" alt=""/>
-                </a>
-                <a className="right_btn btns" href="/"><span></span></a>
-                <div className="control_1">
-                    <div className="swiper">
-                        <a className="dot"  href="/"><span></span></a>
-                        <a className="dot"  href="/"><span></span></a>
-                        <a className="dot"  href="/"><span></span></a>
-                    </div>
-                    <a className="stop on" href="/"><span></span></a>
-                    <a className="start" href="/"><span></span></a>
-                </div>
-            </div>
+            <ImgSlide></ImgSlide>
             <TextSlide></TextSlide>
         </section>
         <section className="cbx c2">
@@ -221,7 +222,6 @@ function Main(){
                     </a>
                 </li>
             </ul>
-
         </section>
     </main>
     </div>
