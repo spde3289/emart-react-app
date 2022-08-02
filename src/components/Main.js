@@ -2,12 +2,16 @@ import './main.css';
 import {useState} from 'react';
 
 function ImgSlide(){
-
+    const imgList = [
+        "../imgs/20211202_0818009_002.jpg",
+        "../imgs/20211202_1543008_040.jpg",
+        "../imgs/20211215_2032024_380.jpg",
+    ]
     return(
         <div>
             <a className="left_btn btns" href="/"><span></span></a>
             <a href="/asd" className="changeImg">
-                <img src="" alt=""/>
+                <img src="../imgs/20211202_0818009_002.jpg" alt=""/>
             </a>
             <a className="right_btn btns" href="/"><span></span></a>
             <div className="control_1">
