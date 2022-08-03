@@ -10,21 +10,17 @@ function ImgSlide(){
     const [img, setimg] = useState(imgList[0]);
 
     const dotList = [];
-    const [doton, setDot] = useState(false);
-    
-    
+    const [doton, setDot] = useState();
+    console.log(doton)
     for(let i = 0; i< imgList.length; i++){
         dotList.push(
-            <a key={i} className={'dot '+(doton? 'dot_on' : '')} href='/' onClick={()=>{
-                setimg(imgList[i])
-                if(img === imgList[i]){    
-                    setDot(true)
-                };
+            <a key={i} className={'dot ' +(doton) } href='/' onClick={()=>{
+                setimg(imgList[i]);
+                if(i === Number(dotList[i].key)){
+                    setDot('dot_on')
+                }
             }}><span></span></a>
             );
-            if(imgList[i] === img){
-                dotList[i].props.className
-            }
         };
 
     return(
@@ -42,7 +38,7 @@ function ImgSlide(){
                 };
             }}><span></span></a>
             <a href="/" className="changeImg">
-                <img src={img} alt=""/>
+                <img src={img} alt="" />
             </a>
             <a className="right_btn btns" href="/" onClick={()=>{
                     for(let i = 0; i < imgList.length; i++){
