@@ -2,26 +2,63 @@ import './main.css';
 import {useState} from 'react';
 
 function ImgSlide(){
+    const imgList = [
+        require("../imgs/20211202_0818009_002.jpg"),
+        require("../imgs/20211202_1543008_040.jpg"),
+        require("../imgs/20211215_2032024_380.jpg"),
+    ];
     const [img, setimg] = useState(imgList[0]);
 
+    const dotList = [];
+    const [doton, setDot] = useState(false);
+    
+    
+    for(let i = 0; i< imgList.length; i++){
+        dotList.push(
+            <a key={i} className={'dot '+(doton? 'dot_on' : '')} href='/' onClick={()=>{
+                setimg(imgList[i])
+                if(img === imgList[i]){    
+                    setDot(true)
+                };
+            }}><span></span></a>
+            );
+            if(imgList[i] === img){
+                dotList[i].props.className
+            }
+        };
 
-    const imgList = [
-        "../imgs/20211202_0818009_002.jpg",
-        "../imgs/20211202_1543008_040.jpg",
-        "../imgs/20211215_2032024_380.jpg",
-    ]
     return(
         <div>
-            <a className="left_btn btns" href="/"><span></span></a>
-            <a href="/asd" className="changeImg">
+            <a className="left_btn btns" href="/" onClick={()=>{
+                for(let i = 0; i <imgList.length; i++){
+                    if(img === imgList[i]){
+                        i--;
+                        if(i === -1){
+                            i = imgList.length-1
+                        }
+                        setimg(imgList[i])
+                        break;
+                    };
+                };
+            }}><span></span></a>
+            <a href="/" className="changeImg">
                 <img src={img} alt=""/>
             </a>
-            <a className="right_btn btns"  href="/"><span></span></a>
+            <a className="right_btn btns" href="/" onClick={()=>{
+                    for(let i = 0; i < imgList.length; i++){
+                        if(img === imgList[i]){
+                            i++;
+                            if(i === imgList.length){
+                                i = 0
+                            }
+                            setimg(imgList[i])
+                            break;
+                        };
+                    };
+                }}><span></span></a>
             <div className="control_1">
                 <div className="swiper">
-                    <a className="dot"  href="/"><span></span></a>
-                    <a className="dot"  href="/"><span></span></a>
-                    <a className="dot"  href="/"><span></span></a>
+                    {dotList}
                 </div>
                 <a className="stop on" href="/"><span></span></a>
                 <a className="start" href="/"><span></span></a>
