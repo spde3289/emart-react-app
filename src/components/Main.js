@@ -2,6 +2,7 @@ import './main.css';
 import {useState} from 'react';
 
 function ImgSlide(){
+
     const [imgList, setImgList] = useState([
         { key: 'event1', isClicked:1, src:require("../imgs/20211202_0818009_002.jpg")},
         { key: 'event2', isClicked:0, src:require("../imgs/20211202_1543008_040.jpg")},
@@ -56,9 +57,9 @@ function ImgSlide(){
             <a className="right_btn btns" href="/" onClick={()=>{imgHandler('next')}}><span></span></a>
             <div className="control_1">
                 <div className="swiper">
-                    <a className={'dot ' + (imgList[0].isClicked === 1? 'dot_on': '') } href="/" onClick={()=>directButton('event1') }><span></span></a>
-                    <a className={'dot ' + (imgList[1].isClicked === 1? 'dot_on': '') } href="/" onClick={()=>directButton('event2') }><span></span></a>
-                    <a className={'dot ' + (imgList[2].isClicked === 1? 'dot_on': '') } href="/" onClick={()=>directButton('event3')}><span></span></a>
+                    <a className={'dot' + (imgList[0].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event1') }><span></span></a>
+                    <a className={'dot' + (imgList[1].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event2') }><span></span></a>
+                    <a className={'dot' + (imgList[2].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event3')}><span></span></a>
                 </div>
                 <a className="stop on" href="/"><span></span></a>
                 <a className="start" href="/"><span></span></a>
