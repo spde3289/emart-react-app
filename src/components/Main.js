@@ -2,59 +2,31 @@ import './main.css';
 import {useState} from 'react';
 
 function ImgSlide(){
-    const imgList = [
-        require("../imgs/20211202_0818009_002.jpg"),
-        require("../imgs/20211202_1543008_040.jpg"),
-        require("../imgs/20211215_2032024_380.jpg"),
-    ];
-    const [img, setimg] = useState(imgList[0]);
+    const [imgList, setImgList] = useState([
+        { key: '1', isClicked:1, src:require("../imgs/20211202_0818009_002.jpg")},
+        { key: '2', isClicked:0, src:require("../imgs/20211202_1543008_040.jpg")},
+        { key: '3', isClicked:0, src:require("../imgs/20211215_2032024_380.jpg")},
+    ]);
 
-    const dotList = [];
-    const [doton, setDot] = useState();
-    console.log(doton)
-    for(let i = 0; i< imgList.length; i++){
-        dotList.push(
-            <a key={i} className={'dot ' +(doton) } href='/' onClick={()=>{
-                setimg(imgList[i]);
-                if(i === Number(dotList[i].key)){
-                    setDot('dot_on')
-                }
-            }}><span></span></a>
-            );
-        };
+    console.log(imgList.filter(img=>{return(
+        img.isClicked === 1 
+    )})[0].src)
+    console.log(imgList.map( img=>{return(
+        img.isClicked === 1 
+    )}))
+
 
     return(
         <div>
             <a className="left_btn btns" href="/" onClick={()=>{
-                for(let i = 0; i <imgList.length; i++){
-                    if(img === imgList[i]){
-                        i--;
-                        if(i === -1){
-                            i = imgList.length-1
-                        }
-                        setimg(imgList[i])
-                        break;
-                    };
-                };
             }}><span></span></a>
             <a href="/" className="changeImg">
-                <img src={img} alt="" />
+                <img src={imgList.filter(img=>{return( img.isClicked === 1 )})[0].src} alt="" />
             </a>
             <a className="right_btn btns" href="/" onClick={()=>{
-                    for(let i = 0; i < imgList.length; i++){
-                        if(img === imgList[i]){
-                            i++;
-                            if(i === imgList.length){
-                                i = 0
-                            }
-                            setimg(imgList[i])
-                            break;
-                        };
-                    };
                 }}><span></span></a>
             <div className="control_1">
                 <div className="swiper">
-                    {dotList}
                 </div>
                 <a className="stop on" href="/"><span></span></a>
                 <a className="start" href="/"><span></span></a>
