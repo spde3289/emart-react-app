@@ -3,30 +3,62 @@ import {useState} from 'react';
 
 function ImgSlide(){
     const [imgList, setImgList] = useState([
-        { key: '1', isClicked:1, src:require("../imgs/20211202_0818009_002.jpg")},
-        { key: '2', isClicked:0, src:require("../imgs/20211202_1543008_040.jpg")},
-        { key: '3', isClicked:0, src:require("../imgs/20211215_2032024_380.jpg")},
+        { key: 'event1', isClicked:1, src:require("../imgs/20211202_0818009_002.jpg")},
+        { key: 'event2', isClicked:0, src:require("../imgs/20211202_1543008_040.jpg")},
+        { key: 'event3', isClicked:0, src:require("../imgs/20211215_2032024_380.jpg")},
     ]);
+    
+    function img(element){
+        if(element.isClicked===1){
+            return true;
+        }
+    }
 
-    console.log(imgList.filter(img=>{return(
-        img.isClicked === 1 
-    )})[0].src)
-    console.log(imgList.map( img=>{return(
-        img.isClicked === 1 
-    )}))
+    const directButton = (key) =>{
+        setImgList([...imgList].map(img=>{
+            return{
+                key : img.key,
+                isClicked: img.key === key ? 1 : 0, 
+                src : img.src
+            }
+        }))
+    }
 
+    const imgHandler = (type) => {
+        let currentIndex = imgList.findIndex(img => img.isClicked === 1);
+        let updateIndex = type === 'prev'
+        ? currentIndex -1 
+        : currentIndex + 1
+
+        if(updateIndex === imgList.length ){
+            updateIndex = 0 
+        }else if(updateIndex === -1)(
+            updateIndex = imgList.length -1
+        )
+        console.log(updateIndex);
+        
+        setImgList([...imgList].map((img, index)=>{
+            return {
+                key : img.key,
+                isClicked: index === updateIndex ? 1 : 0, 
+                src : img.src
+            }
+        }))
+    }
+    console.log(imgList)
 
     return(
         <div>
-            <a className="left_btn btns" href="/" onClick={()=>{
-            }}><span></span></a>
+            <a className="left_btn btns" href="/" onClick={()=>{imgHandler('prev')}}><span></span></a>
             <a href="/" className="changeImg">
-                <img src={imgList.filter(img=>{return( img.isClicked === 1 )})[0].src} alt="" />
+                <img src={imgList.find(img).src}  alt="" />
             </a>
-            <a className="right_btn btns" href="/" onClick={()=>{
-                }}><span></span></a>
+            <a className="right_btn btns" href="/" onClick={()=>{imgHandler('next')}}><span></span></a>
             <div className="control_1">
                 <div className="swiper">
+                    <a className={'dot ' + (imgList[0].isClicked === 1? 'dot_on': '') } href="/" onClick={()=>directButton('event1') }><span></span></a>
+                    <a className={'dot ' + (imgList[1].isClicked === 1? 'dot_on': '') } href="/" onClick={()=>directButton('event2') }><span></span></a>
+                    <a className={'dot ' + (imgList[2].isClicked === 1? 'dot_on': '') } href="/" onClick={()=>directButton('event3')}><span></span></a>
                 </div>
                 <a className="stop on" href="/"><span></span></a>
                 <a className="start" href="/"><span></span></a>
