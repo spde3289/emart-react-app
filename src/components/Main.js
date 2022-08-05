@@ -12,8 +12,8 @@ function ImgSlide(){
     function img(element){
         if(element.isClicked===1){
             return true;
-        }
-    }
+        };
+    };
 
     const directButton = (key) =>{
         setImgList([...imgList].map(img=>{
@@ -21,32 +21,30 @@ function ImgSlide(){
                 key : img.key,
                 isClicked: img.key === key ? 1 : 0, 
                 src : img.src
-            }
-        }))
-    }
-
+            };
+        }));
+    };
+    
     const imgHandler = (type) => {
         let currentIndex = imgList.findIndex(img => img.isClicked === 1);
         let updateIndex = type === 'prev'
-        ? currentIndex -1 
+        ? currentIndex -1
         : currentIndex + 1
 
         if(updateIndex === imgList.length ){
             updateIndex = 0 
         }else if(updateIndex === -1)(
             updateIndex = imgList.length -1
-        )
-        console.log(updateIndex);
+        );
         
         setImgList([...imgList].map((img, index)=>{
             return {
                 key : img.key,
                 isClicked: index === updateIndex ? 1 : 0, 
                 src : img.src
-            }
-        }))
-    }
-    console.log(imgList)
+            };
+        }));
+    };
 
     return(
         <div>
