@@ -3,11 +3,15 @@ import {useState} from 'react';
 
 function ImgSlide(){
 
+    const [on, seton] = useState(true)
+
     const [imgList, setImgList] = useState([
         { key: 'event1', isClicked:1, src:require("../imgs/20211202_0818009_002.jpg")},
         { key: 'event2', isClicked:0, src:require("../imgs/20211202_1543008_040.jpg")},
         { key: 'event3', isClicked:0, src:require("../imgs/20211215_2032024_380.jpg")},
     ]);
+
+
     
     function img(element){
         if(element.isClicked===1){
@@ -24,7 +28,7 @@ function ImgSlide(){
             };
         }));
     };
-    
+
     const imgHandler = (type) => {
         let currentIndex = imgList.findIndex(img => img.isClicked === 1);
         let updateIndex = type === 'prev'
@@ -45,6 +49,8 @@ function ImgSlide(){
             };
         }));
     };
+    console.log('render')
+
 
     return(
         <div>
@@ -59,15 +65,15 @@ function ImgSlide(){
                     <a className={'dot' + (imgList[1].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event2') }><span></span></a>
                     <a className={'dot' + (imgList[2].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event3')}><span></span></a>
                 </div>
-                <a className="stop on" href="/"><span></span></a>
-                <a className="start" href="/"><span></span></a>
+                <a className={'stop' + (on? ' on' : '')} href="/" onClick={()=>seton()}><span></span></a>
+                <a className={"start" + (!on? ' on' : '')} href="/" onClick={()=>seton(true)}><span></span></a>
             </div>
         </div>
     )
 }
 
 function TextSlide() {
-
+    
     const [ani, setani] = useState()
     const [on, seton] = useState(true)
     
