@@ -67,7 +67,7 @@ function ImgSlide(){
                     <a className={'dot' + (imgList[1].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event2') }><span></span></a>
                     <a className={'dot' + (imgList[2].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event3')}><span></span></a>
                 </div>
-                <a className={'stop' + (on? ' on' : '')} href="/" onClick={()=>seton()}><span></span></a>
+                <a className={'stop' + (on? ' on' : '')} href="/" onClick={()=>seton(false)}><span></span></a>
                 <a className={"start" + (!on? ' on' : '')} href="/" onClick={()=>seton(true)}><span></span></a>
             </div>
         </div>
@@ -117,7 +117,7 @@ function TextSlide() {
                     <div className="control">
                         <span className={'stop '+ (on ? "on" : "")} id="stop"  onClick={(e)=>{
                             setani('aniStop')
-                            seton()
+                            seton(false)
                         }}></span>
                         <span className={"start " + (!on ? "on" : "")} id="start" onClick={(e)=>{
                             setani()
