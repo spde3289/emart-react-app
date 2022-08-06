@@ -41,6 +41,8 @@ function ImgSlide(){
             updateIndex = imgList.length -1
         );
         
+
+
         setImgList([...imgList].map((img, index)=>{
             return {
                 key : img.key,
@@ -49,7 +51,7 @@ function ImgSlide(){
             };
         }));
     };
-    console.log('render')
+    console.log('render', key)
 
 
     return(
