@@ -1,5 +1,5 @@
 import './main.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function ImgSlide(){
 
@@ -42,7 +42,7 @@ function ImgSlide(){
         );
         
 
-
+        
         setImgList([...imgList].map((img, index)=>{
             return {
                 key : img.key,
@@ -51,7 +51,12 @@ function ImgSlide(){
             };
         }));
     };
-    console.log('render', key)
+    useEffect(()=>{
+        //setInterval(imgHandler('next'), 4000)
+    });
+
+
+    console.log('render')
 
 
     return(
