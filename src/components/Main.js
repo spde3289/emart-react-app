@@ -51,13 +51,11 @@ function ImgSlide(){
             };
         }));
     };
+
     useEffect(()=>{
-        //setInterval(imgHandler('next'), 4000)
+        //setInterval(()=>{imgHandler('next')}, 4000)
+        console.log('render')
     });
-
-
-    console.log('render')
-
 
     return(
         <div>
