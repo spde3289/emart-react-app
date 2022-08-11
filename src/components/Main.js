@@ -41,7 +41,7 @@ function ImgSlide(){
             updateIndex = imgList.length -1
         );
         
-
+        
         
         setImgList([...imgList].map((img, index)=>{
             return {
@@ -51,11 +51,12 @@ function ImgSlide(){
             };
         }));
     };
-
     useEffect(()=>{
+        if(on){
         const slide =  setInterval(()=>{imgHandler('next')}, 4000)
         console.log('render')
         return () => {clearInterval(slide)}
+        }
     });
 
     return(
