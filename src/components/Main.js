@@ -54,7 +54,6 @@ function ImgSlide(){
     useEffect(()=>{
         if(on){
         const slide =  setInterval(()=>{imgHandler('next')}, 4000)
-        console.log('render')
         return () => {clearInterval(slide)}
         }
     });
