@@ -182,67 +182,31 @@ const Maincover = () => {
 
 const IconLink = () => {
 
-    
+    const iconList = [
+        {id:1, img:require("../imgs/logo_main_brand01.png"),overimg:require("../imgs/logo_main_brand01_over.png"),text:'트레이더스'},
+        {id:2, img:require("../imgs/logo_main_brand11.png"),overimg:require("../imgs/logo_main_brand11_over.png"),text:'노브랜드'},
+        {id:3, img:require("../imgs/logo_main_brand02.png"),overimg:require("../imgs/logo_main_brand02_over.png"),text:'몰리스'},
+        {id:4, img:require("../imgs/logo_main_brand03.png"),overimg:require("../imgs/logo_main_brand03_over.png"),text:'일렉트로마트'},
+        {id:5, img:require("../imgs/logo_main_brand05.png"),overimg:require("../imgs/logo_main_brand05_over.png"),text:'PK Market'},
+        {id:6, img:require("../imgs/logo_main_brand06.png"),overimg:require("../imgs/logo_main_brand06_over.png"),text:'ssg푸드마켓'},
+        {id:7, img:require("../imgs/logo_main_brand07.png"),overimg:require("../imgs/logo_main_brand07_over.png"),text:'토이킹덤'},
+        {id:8, img:require("../imgs/logo_main_brand09.png"),overimg:require("../imgs/logo_main_brand09_over.png"),text:'베이미서클'},
+    ]
+
+    const icon = iconList.map((list)=>(
+        <li key={list.id}>
+            <a href="/">
+                <img src={list.img} alt="트레이더스"/>
+                <img className="over" src={list.overimg} alt="트레이더스"/>
+                <span>{list.text}</span>
+            </a>
+        </li>
+    ))   
 
     return(
         <ul>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand01.png")} alt="트레이더스"/>
-                        <img className="over" src={require("../imgs/logo_main_brand01_over.png")} alt="트레이더스"/>
-                        <span>트레이더스</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand11.png")} alt="노브랜드"/>
-                        <img className="over" src={require("../imgs/logo_main_brand11_over.png")} alt="노브랜드"/>
-                        <span>노브랜드</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand02.png")} alt="몰리스"/>
-                        <img className="over" src={require("../imgs/logo_main_brand02_over.png")} alt="몰리스"/>
-                        <span>몰리스</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand03.png")} alt="일렉트로마트"/>
-                        <img className="over" src={require("../imgs/logo_main_brand03_over.png")} alt="일렉트로마트"/>
-                        <span>일렉트로마트</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand05.png")} alt="PK Market"/>
-                        <img className="over" src={require("../imgs/logo_main_brand05_over.png")} alt="PK Market"/>
-                        <span>PK Market</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand06.png")} alt="SSG푸드마켓"/>
-                        <img className="over" src={require("../imgs/logo_main_brand06_over.png")} alt="SSG푸드마켓"/>
-                        <span>SSG푸드마켓</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand07.png")} alt="토이킹덤"/>
-                        <img className="over" src={require("../imgs/logo_main_brand07_over.png")} alt="토이킹덤"/>
-                        <span>토이킹덤</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src={require("../imgs/logo_main_brand09.png")} alt="베이비서클"/>
-                        <img className="over" src={require("../imgs/logo_main_brand09_over.png")} alt="베이비서클"/>
-                        <span>베이비서클</span>
-                    </a>
-                </li>
-            </ul>
+            {icon}
+        </ul>
     )
 }
 
