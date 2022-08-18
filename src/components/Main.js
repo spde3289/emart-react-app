@@ -51,7 +51,7 @@ function ImgSlide(){
         if(on){
         const slide =  setInterval(()=>{imgHandler('next')}, 4000)
         return () => {clearInterval(slide)}
-        }
+        };
     });
 
   
@@ -74,13 +74,13 @@ function ImgSlide(){
                 <a className={"start" + (!on? ' on' : '')} href="/" onClick={()=>seton(true)}><span></span></a>
             </div>
         </div>
-    )
-}
+    );
+};
 
 function TextSlide() {
     
-    const [ani, setani] = useState()
-    const [on, seton] = useState(true)
+    const [ani, setani] = useState();
+    const [on, seton] = useState(true);
     
     const TextList = [
         {id:0 , text:'삼성/LG 대형가전 최대 30만원 할인'},
@@ -99,7 +99,7 @@ function TextSlide() {
     for(var i=0; i < TextList.length; i++){
         list.push(
             <li key={TextList[i].id}>{TextList[i].text}</li>
-            )
+            );
         };
         
     return(
@@ -140,7 +140,7 @@ const Mainbenner = () =>{
         {id:3, img:require('../imgs/20220113_0055049_203.jpg'), text1:'이마트/트레이터드세어 쇼핑하면', text2:'가전제품 할부금이 0원!'},
         {id:4, img:require("../imgs/20220216_1613036_011.jpg"), text1:'이마트에서 만나는', text2:'대한항공 마일리지'},
         {id:5, img:require("../imgs/20220218_0956038_005.jpg"), text1:'아시아나항공 마일리지', text2:'적립/사용 안내'}
-    ]   
+    ];
 
     const slide = bennerList.map((list)=>(
         <div key={list.id} className="slide">
@@ -177,8 +177,8 @@ const Maincover = () => {
                 </a>
             </div>
         </div>
-    )
-} 
+    );
+};
 
 const IconLink = () => {
 
@@ -191,7 +191,7 @@ const IconLink = () => {
         {id:6, img:require("../imgs/logo_main_brand06.png"),overimg:require("../imgs/logo_main_brand06_over.png"),text:'ssg푸드마켓'},
         {id:7, img:require("../imgs/logo_main_brand07.png"),overimg:require("../imgs/logo_main_brand07_over.png"),text:'토이킹덤'},
         {id:8, img:require("../imgs/logo_main_brand09.png"),overimg:require("../imgs/logo_main_brand09_over.png"),text:'베이미서클'},
-    ]
+    ];
 
     const icon = iconList.map((list)=>(
         <li key={list.id}>
@@ -201,14 +201,14 @@ const IconLink = () => {
                 <span>{list.text}</span>
             </a>
         </li>
-    ))   
+    ));
 
     return(
         <ul>
             {icon}
         </ul>
-    )
-}
+    );
+};
 
 function Main(){
 
@@ -238,7 +238,7 @@ function Main(){
         </section>
     </main>
     </div>
-    )
-}
+    );
+};
 
 export default Main;
