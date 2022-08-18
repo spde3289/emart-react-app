@@ -219,7 +219,7 @@
     color: #333;
 }
 
-.slide :hover span{
+.slide:hover span{
     text-decoration: underline;
 }
 

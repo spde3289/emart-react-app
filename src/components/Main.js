@@ -39,8 +39,6 @@ function ImgSlide(){
             updateIndex = imgList.length -1
         );
         
-        
-        
         setImgList([...imgList].map((img, index)=>{
             return {
                 key : img.key,
@@ -56,28 +54,21 @@ function ImgSlide(){
         }
     });
 
-    const dotList = [];
+  
 
-    for(let i=0; i < imgList.length; i++){
-        dotList.push(
-            <a className={'dot' + (imgList[i].isClicked === 1? ' dot_on':'')} href="/" onClick={()=>directButton('event'+{i})}><span></span></a>
-        )
-    }
 
     return(
         <div>
-            <a className="left_btn btns" href="/" onClick={()=>{
-                imgHandler('prev')
-                }}><span></span></a>
+            <a className="left_btn btns" href="/" onClick={()=>{imgHandler('prev')}}><span></span></a>
             <a href="/" className="changeImg">
                 <img src={imgList.find(img).src}  alt="" />
             </a>
-            <a className="right_btn btns" href="/" onClick={()=>{
-                imgHandler('next')
-                }}><span></span></a>
+            <a className="right_btn btns" href="/" onClick={()=>{imgHandler('next')}}><span></span></a>
             <div className="control_1">
                 <div className="swiper">
-                    {dotList}
+                    <a className={'dot' + (imgList[0].isClicked === 1 ? ' dot_on': '')} href="/" onClick={()=>directButton('event1')}><span></span></a>
+                    <a className={'dot' + (imgList[1].isClicked === 1 ? ' dot_on': '')} href="/" onClick={()=>directButton('event2')}><span></span></a>
+                    <a className={'dot' + (imgList[2].isClicked === 1 ? ' dot_on': '')} href="/" onClick={()=>directButton('event3')}><span></span></a>
                 </div>
                 <a className={'stop' + (on? ' on' : '')} href="/" onClick={()=>seton(false)}><span></span></a>
                 <a className={"start" + (!on? ' on' : '')} href="/" onClick={()=>seton(true)}><span></span></a>
@@ -151,55 +142,19 @@ const Mainbenner = () =>{
         {id:5, img:require("../imgs/20220218_0956038_005.jpg"), text1:'아시아나항공 마일리지', text2:'적립/사용 안내'}
     ]   
 
-    const slide = [];
+    const slide = bennerList.map((list)=>(
+        <div key={list.id} className="slide">
+            <img src={list.img} alt="금주의 전간돵고 배너"/>
+            <span>
+                {list.text1}<br/>
+                {list.text2}
+            </span>
+        </div>
+    ));
 
     return (
         <div className="mainbenner">
-            <div className="slide">
-                <a href="/">
-                    <img src={bennerList[0].img} alt="금주의 전간돵고 배너"/>
-                    <span>
-                        더 좋은 가격으로 이마트에서 절약하세요!<br/>
-                        금주의 전단광고
-                    </span>
-                </a>
-            </div>
-            <div className="slide">
-                <a href="/">
-                    <img src={require("../imgs/20220113_0052006_202.jpg")} alt="금주의 전간돵고 배너"/>
-                    <span>
-                        이마트 할인이 시작된다<br/>
-                        e날특가
-                    </span>
-                </a>
-            </div>
-            <div className="slide">
-                <a href="/">
-                    <img src={require("../imgs/20220113_0055049_203.jpg")} alt="금주의 전간돵고 배너"/>
-                    <span>
-                        이마트/트레이더스에서 쇼핑하면<br/>
-                        가전제품 할부금이 0원!
-                    </span>
-                </a>
-            </div>
-            <div className="slide">
-                <a href="/">
-                    <img src={require("../imgs/20220216_1613036_011.jpg")} alt="금주의 전간돵고 배너"/>
-                    <span>
-                        이마트에서 만나는<br/>
-                        대한항공 마일리지
-                    </span>
-                </a>
-            </div>
-            <div className="slide">
-                <a href="/">
-                    <img src={require("../imgs/20220218_0956038_005.jpg")} alt="금주의 전간돵고 배너"/>
-                    <span>
-                        아시아나항공 마일리지<br/>
-                        적립/사용 안내
-                    </span>
-                </a>
-            </div>
+            {slide}
         </div>
     );
 };
@@ -226,6 +181,9 @@ const Maincover = () => {
 } 
 
 const IconLink = () => {
+
+    
+
     return(
         <ul>
                 <li>
