@@ -11,8 +11,6 @@ function ImgSlide(){
         { key: 'event3', isClicked:0, src:require("../imgs/20211215_2032024_380.jpg")},
     ]);
 
-
-    
     function img(element){
         if(element.isClicked===1){
             return true;
@@ -58,18 +56,28 @@ function ImgSlide(){
         }
     });
 
+    const dotList = [];
+
+    for(let i=0; i < imgList.length; i++){
+        dotList.push(
+            <a className={'dot' + (imgList[i].isClicked === 1? ' dot_on':'')} href="/" onClick={()=>directButton('event'+{i})}><span></span></a>
+        )
+    }
+
     return(
         <div>
-            <a className="left_btn btns" href="/" onClick={()=>{imgHandler('prev')}}><span></span></a>
+            <a className="left_btn btns" href="/" onClick={()=>{
+                imgHandler('prev')
+                }}><span></span></a>
             <a href="/" className="changeImg">
                 <img src={imgList.find(img).src}  alt="" />
             </a>
-            <a className="right_btn btns" href="/" onClick={()=>{imgHandler('next')}}><span></span></a>
+            <a className="right_btn btns" href="/" onClick={()=>{
+                imgHandler('next')
+                }}><span></span></a>
             <div className="control_1">
                 <div className="swiper">
-                    <a className={'dot' + (imgList[0].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event1') }><span></span></a>
-                    <a className={'dot' + (imgList[1].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event2') }><span></span></a>
-                    <a className={'dot' + (imgList[2].isClicked === 1? ' dot_on': '') } href="/" onClick={()=>directButton('event3')}><span></span></a>
+                    {dotList}
                 </div>
                 <a className={'stop' + (on? ' on' : '')} href="/" onClick={()=>seton(false)}><span></span></a>
                 <a className={"start" + (!on? ' on' : '')} href="/" onClick={()=>seton(true)}><span></span></a>
@@ -134,92 +142,92 @@ function TextSlide() {
     );
 };
 
-function Main(){
+const Mainbenner = () =>{
+    const bennerList = [
+        {id:1, img:require("../imgs/20220106_0838004_001.jpg"), text1:'더 좋은 가격으로 이마트에서 절약하세요!',text2:'금주의 전단광고'},
+        {id:2, img:require("../imgs/20220113_0052006_202.jpg"), text1:'이마트 할인이 시작된다', text2:'e날특가'},
+        {id:3, img:require('../imgs/20220113_0055049_203.jpg'), text1:'이마트/트레이터드세어 쇼핑하면', text2:'가전제품 할부금이 0원!'},
+        {id:4, img:require("../imgs/20220216_1613036_011.jpg"), text1:'이마트에서 만나는', text2:'대한항공 마일리지'},
+        {id:5, img:require("../imgs/20220218_0956038_005.jpg"), text1:'아시아나항공 마일리지', text2:'적립/사용 안내'}
+    ]   
+
+    const slide = [];
 
     return (
-        <div className="m1">
-        <main className="cont ibx">
-        <section className="cbx c1">
-            <ImgSlide></ImgSlide>
-            <TextSlide></TextSlide>
-        </section>
-        <section className="cbx c2">
-            <div className="main">
-                <h2>금주의 득탬 찬스</h2>
-                <div className="mainbenner">
-                    <div className="slide">
-                        <a href="/">
-                            <img src={require("../imgs/20220106_0838004_001.jpg")} alt="금주의 전간돵고 배너"/>
-                            <span>
-                                더 좋은 가격으로 이마트에서 절약하세요!<br/>
-                                금주의 전단광고
-                            </span>
-                        </a>
-                    </div>
-                    <div className="slide">
-                        <a href="/">
-                            <img src={require("../imgs/20220113_0052006_202.jpg")} alt="금주의 전간돵고 배너"/>
-                            <span>
-                                이마트 할인이 시작된다<br/>
-                                e날특가
-                            </span>
-                        </a>
-                    </div>
-                    <div className="slide">
-                        <a href="/">
-                            <img src={require("../imgs/20220113_0055049_203.jpg")} alt="금주의 전간돵고 배너"/>
-                            <span>
-                                이마트/트레이더스에서 쇼핑하면<br/>
-                                가전제품 할부금이 0원!
-                            </span>
-                        </a>
-                    </div>
-                    <div className="slide">
-                        <a href="/">
-                            <img src={require("../imgs/20220216_1613036_011.jpg")} alt="금주의 전간돵고 배너"/>
-                            <span>
-                                이마트에서 만나는<br/>
-                                대한항공 마일리지
-                            </span>
-                        </a>
-                    </div>
-                    <div className="slide">
-                        <a href="/">
-                            <img src={require("../imgs/20220218_0956038_005.jpg")} alt="금주의 전간돵고 배너"/>
-                            <span>
-                                아시아나항공 마일리지<br/>
-                                적립/사용 안내
-                            </span>
-                        </a>
-                    </div>
-                </div>
+        <div className="mainbenner">
+            <div className="slide">
+                <a href="/">
+                    <img src={bennerList[0].img} alt="금주의 전간돵고 배너"/>
+                    <span>
+                        더 좋은 가격으로 이마트에서 절약하세요!<br/>
+                        금주의 전단광고
+                    </span>
+                </a>
             </div>
-        </section>
-        <section className="cbx c3">
-            <div className="main2">
-                <h2>언제 어디서나 즐거운 콘텐츠</h2>
-                <div className="maincover">
-                    <div className="float">
-                        <div id="leftimg">
-                            <a href="/">
-                                <img src={require("../imgs/joyful_app_210407.jpg")}
-                                    alt="기분좋은 쇼핑 이마트앱, 유용한 쇼핑정보와 혜택을 한눈에 확인 할 수 있는 모바일 서비스"/>
-                            </a>
-                        </div>
-                        <div id="rightimg">
-                            <a className="size-up" href="/">
-                                <img src={require("../imgs/joyful_tv_210707.jpg")} alt="꼭 끝까지 봐야하는 이마트 TV"/>
-                            </a>
-                            <a className="size-down" href="/">
-                                <img src={require("../imgs/joyful_music_210707.jpg")} alt="이마트가 직접 만든 뮤직 스토리"/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div className="slide">
+                <a href="/">
+                    <img src={require("../imgs/20220113_0052006_202.jpg")} alt="금주의 전간돵고 배너"/>
+                    <span>
+                        이마트 할인이 시작된다<br/>
+                        e날특가
+                    </span>
+                </a>
             </div>
-        </section>
-        <section className="cbx c5">
-            <ul>
+            <div className="slide">
+                <a href="/">
+                    <img src={require("../imgs/20220113_0055049_203.jpg")} alt="금주의 전간돵고 배너"/>
+                    <span>
+                        이마트/트레이더스에서 쇼핑하면<br/>
+                        가전제품 할부금이 0원!
+                    </span>
+                </a>
+            </div>
+            <div className="slide">
+                <a href="/">
+                    <img src={require("../imgs/20220216_1613036_011.jpg")} alt="금주의 전간돵고 배너"/>
+                    <span>
+                        이마트에서 만나는<br/>
+                        대한항공 마일리지
+                    </span>
+                </a>
+            </div>
+            <div className="slide">
+                <a href="/">
+                    <img src={require("../imgs/20220218_0956038_005.jpg")} alt="금주의 전간돵고 배너"/>
+                    <span>
+                        아시아나항공 마일리지<br/>
+                        적립/사용 안내
+                    </span>
+                </a>
+            </div>
+        </div>
+    );
+};
+
+const Maincover = () => {
+    return (
+        <div className="float">
+            <div id="leftimg">
+                <a href="/">
+                    <img src={require("../imgs/joyful_app_210407.jpg")}
+                        alt="기분좋은 쇼핑 이마트앱, 유용한 쇼핑정보와 혜택을 한눈에 확인 할 수 있는 모바일 서비스"/>
+                </a>
+            </div>
+            <div id="rightimg">
+                <a className="size-up" href="/">
+                    <img src={require("../imgs/joyful_tv_210707.jpg")} alt="꼭 끝까지 봐야하는 이마트 TV"/>
+                </a>
+                <a className="size-down" href="/">
+                    <img src={require("../imgs/joyful_music_210707.jpg")} alt="이마트가 직접 만든 뮤직 스토리"/>
+                </a>
+            </div>
+        </div>
+    )
+} 
+
+const IconLink = () => {
+    return(
+        <ul>
                 <li>
                     <a href="/">
                         <img src={require("../imgs/logo_main_brand01.png")} alt="트레이더스"/>
@@ -277,6 +285,34 @@ function Main(){
                     </a>
                 </li>
             </ul>
+    )
+}
+
+function Main(){
+
+    return (
+        <div className="m1">
+        <main className="cont ibx">
+        <section className="cbx c1">
+            <ImgSlide></ImgSlide>
+            <TextSlide></TextSlide>
+        </section>
+        <section className="cbx c2">
+            <div className="main">
+                <h2>금주의 득탬 찬스</h2>
+                <Mainbenner></Mainbenner>
+            </div>
+        </section>
+        <section className="cbx c3">
+            <div className="main2">
+                <h2>언제 어디서나 즐거운 콘텐츠</h2>
+                <div className="maincover">
+                    <Maincover></Maincover>
+                </div>
+            </div>
+        </section>
+        <section className="cbx c5">
+            <IconLink></IconLink>
         </section>
     </main>
     </div>

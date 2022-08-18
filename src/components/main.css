@@ -26,6 +26,7 @@
     width: 22px;
     height: 38px;
     background: url('../imgs/main_top_slide.png') no-repeat 0 -153px;
+    transition: all 0.5s;
 }
 
 .right_btn{
