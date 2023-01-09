@@ -29,6 +29,7 @@ function ImgSlide(){
 
     const imgHandler = (type) => {
         let currentIndex = imgList.findIndex(img => img.isClicked === 1);
+        console.log(currentIndex);
         let updateIndex = type === 'prev'
         ? currentIndex -1
         : currentIndex + 1
@@ -38,8 +39,11 @@ function ImgSlide(){
         }else if(updateIndex === -1)(
             updateIndex = imgList.length -1
         );
+
+        console.log(currentIndex, updateIndex)
         
         setImgList([...imgList].map((img, index)=>{
+            console.log(index, img)
             return {
                 key : img.key,
                 isClicked: index === updateIndex ? 1 : 0, 
@@ -53,9 +57,6 @@ function ImgSlide(){
         return () => {clearInterval(slide)}
         };
     });
-
-  
-
 
     return(
         <div>
